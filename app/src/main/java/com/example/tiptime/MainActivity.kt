@@ -57,6 +57,7 @@ fun TipTimeLayout() {
                 .padding(bottom = 16.dp, top = 40.dp)
                 .align(alignment = Alignment.Start)
         )
+        EditNumberField(modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth())
         Text(
             text = stringResource(R.string.tip_amount, "$0.00"),
             style = MaterialTheme.typography.displaySmall
