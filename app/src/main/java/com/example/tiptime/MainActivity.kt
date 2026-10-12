@@ -75,9 +75,9 @@ private fun calculateTip(amount: Double, tipPercent: Double = 15.0): String {
 }
 @Composable
 fun EditNumberField(modifier: Modifier = Modifier) {
-    var amountInput = "0"
+    var amountInput: MutableState<String> = mutableStateOf("0")
     TextField(
-        value = amountInput,
+        value = amountInput.value,
         onValueChange = {},
         modifier = modifier
     )
