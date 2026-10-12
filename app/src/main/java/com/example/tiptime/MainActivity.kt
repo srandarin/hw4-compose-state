@@ -31,6 +31,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.annotation.StringRes
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -88,15 +89,16 @@ private fun calculateTip(amount: Double, tipPercent: Double = 15.0): String {
 }
 @Composable
 fun EditNumberField(
+    @StringRes label: Int,
     value: String,
-    onValueChange: (String) -> Unit,
+    onValueChanged: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     TextField(
         value = value,
-        onValueChange = onValueChange,
+        onValueChange = onValueChanged,
         singleLine = true,
-        label = { Text(stringResource(R.string.bill_amount)) },
+        label = { Text(stringResource(label)) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = modifier
     )
