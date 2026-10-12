@@ -79,6 +79,7 @@ private fun calculateTip(amount: Double, tipPercent: Double = 15.0): String {
 fun EditNumberField(modifier: Modifier = Modifier) {
     var amountInput by remember { mutableStateOf("") }
     TextField(
+        singleLine = true,
         label = { Text(stringResource(R.string.bill_amount)) },
         value = amountInput,
         onValueChange = { amountInput= it },
