@@ -29,6 +29,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.foundation.text.KeyboardOptions
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -81,6 +82,7 @@ fun EditNumberField(modifier: Modifier = Modifier) {
     TextField(
         singleLine = true,
         label = { Text(stringResource(R.string.bill_amount)) },
+        keyboardOptions = KeyboardOptions(),
         value = amountInput,
         onValueChange = { amountInput= it },
         modifier = modifier
