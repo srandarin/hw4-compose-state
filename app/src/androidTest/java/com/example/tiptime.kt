@@ -3,6 +3,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import org.junit.Rule
 import org.junit.Test
 import com.example.tiptime.ui.theme.TipTimeTheme
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performTextInput
+
 class TipUITests {
 
     @get:Rule
@@ -15,5 +18,10 @@ class TipUITests {
                 TipTimeLayout()
             }
         }
+        composeTestRule.onNodeWithText("Bill Amount")
+            .performTextInput("10")
+        composeTestRule.onNodeWithText("Tip Percentage")
+            .performTextInput("20")
     }
+
 }
