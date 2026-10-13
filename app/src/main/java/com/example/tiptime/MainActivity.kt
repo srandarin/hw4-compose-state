@@ -34,6 +34,10 @@ import androidx.annotation.StringRes
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material3.Switch
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -126,6 +130,16 @@ fun EditNumberField(
         keyboardOptions = keyboardOptions,
         modifier = modifier
     )
+}
+@Composable
+fun RoundTheTipRow(modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .size(48.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+    }
 }
 @Preview(showBackground = true)
 @Composable
