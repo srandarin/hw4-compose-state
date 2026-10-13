@@ -127,11 +127,12 @@ private fun calculateTip(amount: Double, tipPercent: Double = 15.0, roundUp: Boo
 @Composable
 fun EditNumberField(
     @StringRes label: Int,
+    @DrawableRes leadingIcon: Int,
     keyboardOptions: KeyboardOptions,
     value: String,
     onValueChanged: (String) -> Unit,
     modifier: Modifier = Modifier
-) {
+)  {
     TextField(
         value = value,
         onValueChange = onValueChanged,
