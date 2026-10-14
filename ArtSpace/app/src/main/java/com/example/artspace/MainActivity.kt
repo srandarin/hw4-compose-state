@@ -4,6 +4,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -56,3 +57,10 @@ fun ArtworkWall(@DrawableRes artwork: Int, modifier: Modifier = Modifier) {
         )
     }
 }
+@Composable
+fun ArtworkDescriptor(
+    @StringRes title: Int,
+    @StringRes artist: Int,
+    @StringRes year: Int,
+    modifier: Modifier = Modifier
+){}
