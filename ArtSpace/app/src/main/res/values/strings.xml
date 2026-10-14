@@ -6,4 +6,13 @@
     <string name="previous">Previous</string>
     <string name="next">Next</string>
     <string name="artwork_description">Artwork image</string>
+
+    <string name="artwork_2_title">Title 2</string>
+    <string name="artwork_2_artist">Author 2</string>
+    <string name="artwork_2_year">2025</string>
+
+
+    <string name="artwork_3_title">Title 3</string>
+    <string name="artwork_3_artist">Author 3</string>
+    <string name="artwork_3_year">2024</string>
 </resources>

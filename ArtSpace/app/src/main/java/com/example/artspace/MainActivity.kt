@@ -27,6 +27,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.artspace.ui.theme.ArtSpaceTheme
@@ -61,6 +62,7 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
             artist = R.string.artwork_1_artist,
             year = R.string.artwork_1_year
         )
+        DisplayController()
     }
 }
 @Composable
@@ -99,7 +101,7 @@ fun ArtworkDescriptor(
                 append(" ($yearText)")
             }
         )
-        DisplayController()
+
     }
 }
 @Composable
@@ -114,5 +116,13 @@ fun DisplayController(modifier: Modifier = Modifier){
         Button(onClick = { }, modifier = Modifier.weight(1f)) {
             Text(stringResource(R.string.next))
         }
+    }
+}
+@Preview
+    (showBackground = true)
+@Composable
+fun ArtSpacePreview() {
+    ArtSpaceTheme {
+        ArtSpaceLayout()
     }
 }
