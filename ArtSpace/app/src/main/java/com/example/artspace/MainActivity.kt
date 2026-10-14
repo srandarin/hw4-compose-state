@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -150,12 +151,12 @@ fun DisplayController(
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Button(onClick = onPreviousClick, modifier = Modifier.weight(1f)) {
+        Button(onClick = onPreviousClick, modifier = Modifier.width(140.dp)) {
             Text(stringResource(R.string.previous))
         }
-        Button(onClick = onNextClick, modifier = Modifier.weight(1f)) {
+        Button(onClick = onNextClick, modifier = Modifier.width(140.dp)) {
             Text(stringResource(R.string.next))
         }
     }
