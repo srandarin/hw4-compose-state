@@ -90,6 +90,11 @@ fun ArtworkDescriptor(
     val artistText = stringResource(artist)
     val yearText = stringResource(year)
     var currentArtwork by remember { mutableStateOf(1) }
+    val artworkImage = when (currentArtwork) {
+        1 -> R.drawable.artwork_1
+        2 -> R.drawable.artwork_2
+        else -> R.drawable.artwork_3
+    }
     Column(
         modifier = modifier
             .fillMaxWidth()
