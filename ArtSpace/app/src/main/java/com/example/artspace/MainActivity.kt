@@ -35,6 +35,8 @@ import androidx.compose.ui.unit.sp
 import com.example.artspace.ui.theme.ArtSpaceTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.layout.ContentScale
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +80,7 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
-        ArtworkWall(artworkImage)
+        ArtworkWall(artworkImage, modifier = Modifier.weight(1f))
         ArtworkDescriptor(title = title, artist = artist, year = year)
         DisplayController(onPreviousClick = {
             currentArtwork = when (currentArtwork) {
@@ -101,6 +103,7 @@ fun ArtworkWall(@DrawableRes artwork: Int, modifier: Modifier = Modifier) {
         Image(
             painter = painterResource(artwork),
             contentDescription = stringResource(R.string.artwork_description),
+            contentScale = ContentScale.Fit,
             modifier = Modifier.padding(32.dp)
         )
     }
