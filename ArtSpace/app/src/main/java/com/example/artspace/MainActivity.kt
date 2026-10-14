@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -98,6 +99,7 @@ fun ArtworkDescriptor(
                 append(" ($yearText)")
             }
         )
+        DisplayController()
     }
 }
 @Composable
@@ -106,6 +108,11 @@ fun DisplayController(modifier: Modifier = Modifier){
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ){
-
+        Button(onClick = { }, modifier = Modifier.weight(1f)) {
+            Text(stringResource(R.string.previous))
+        }
+        Button(onClick = { }, modifier = Modifier.weight(1f)) {
+            Text(stringResource(R.string.next))
+        }
     }
 }
