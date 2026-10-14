@@ -80,7 +80,19 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
     ) {
         ArtworkWall(artworkImage)
         ArtworkDescriptor(title = title, artist = artist, year = year)
-        DisplayController(onPreviousClick = { }, onNextClick = { })
+        DisplayController(onPreviousClick = {
+            currentArtwork = when (currentArtwork) {
+                1 -> 3
+                2 -> 1
+                else -> 2
+            }
+        }, onNextClick = {
+                currentArtwork = when (currentArtwork) {
+                    1 -> 2
+                    2 -> 3
+                    else -> 1
+                }
+        })
     }
 }
 @Composable
