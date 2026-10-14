@@ -80,7 +80,7 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
     ) {
         ArtworkWall(artworkImage)
         ArtworkDescriptor(title = title, artist = artist, year = year)
-        DisplayController()
+        DisplayController(onPreviousClick = { }, onNextClick = { })
     }
 }
 @Composable
@@ -122,15 +122,19 @@ fun ArtworkDescriptor(
     }
 }
 @Composable
-fun DisplayController(modifier: Modifier = Modifier){
+fun DisplayController(
+    onPreviousClick: () -> Unit,
+    onNextClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
-    ){
-        Button(onClick = { }, modifier = Modifier.weight(1f)) {
+    ) {
+        Button(onClick = onPreviousClick, modifier = Modifier.weight(1f)) {
             Text(stringResource(R.string.previous))
         }
-        Button(onClick = { }, modifier = Modifier.weight(1f)) {
+        Button(onClick = onNextClick, modifier = Modifier.weight(1f)) {
             Text(stringResource(R.string.next))
         }
     }
