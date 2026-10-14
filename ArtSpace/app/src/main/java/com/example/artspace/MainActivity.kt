@@ -35,8 +35,6 @@ import androidx.compose.ui.unit.sp
 import com.example.artspace.ui.theme.ArtSpaceTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,22 +49,37 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ArtSpaceLayout(modifier: Modifier = Modifier) {
+    var currentArtwork by remember { mutableStateOf(1) }
+    val artworkImage = when (currentArtwork) {
+        1 -> R.drawable.artwork_1
+        2 -> R.drawable.artwork_2
+        else -> R.drawable.artwork_3
+    }
+    val title = when (currentArtwork) {
+        1 -> R.string.artwork_1_title
+        2 -> R.string.artwork_2_title
+        else -> R.string.artwork_3_title
+    }
+    val artist = when (currentArtwork) {
+        1 -> R.string.artwork_1_artist
+        2 -> R.string.artwork_2_artist
+        else -> R.string.artwork_3_artist
+    }
+    val year = when (currentArtwork) {
+        1 -> R.string.artwork_1_year
+        2 -> R.string.artwork_2_year
+        else -> R.string.artwork_3_year
+    }
     Column(
-
         modifier = modifier
             .fillMaxSize()
             .safeDrawingPadding()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
-
     ) {
-        ArtworkWall(R.drawable.artwork_1)
-        ArtworkDescriptor(
-            title = R.string.artwork_1_title,
-            artist = R.string.artwork_1_artist,
-            year = R.string.artwork_1_year
-        )
+        ArtworkWall(artworkImage)
+        ArtworkDescriptor(title = title, artist = artist, year = year)
         DisplayController()
     }
 }
@@ -86,21 +99,15 @@ fun ArtworkDescriptor(
     @StringRes artist: Int,
     @StringRes year: Int,
     modifier: Modifier = Modifier
-){
+) {
     val artistText = stringResource(artist)
     val yearText = stringResource(year)
-    var currentArtwork by remember { mutableStateOf(1) }
-    val artworkImage = when (currentArtwork) {
-        1 -> R.drawable.artwork_1
-        2 -> R.drawable.artwork_2
-        else -> R.drawable.artwork_3
-    }
     Column(
         modifier = modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.surfaceVariant)
             .padding(16.dp)
-    ){
+    ) {
         Text(
             text = stringResource(title),
             fontSize = 24.sp,
@@ -112,7 +119,6 @@ fun ArtworkDescriptor(
                 append(" ($yearText)")
             }
         )
-
     }
 }
 @Composable
