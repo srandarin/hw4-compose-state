@@ -15,12 +15,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.artspace.ui.theme.ArtSpaceTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,6 +54,11 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
 
     ) {
         ArtworkWall(R.drawable.artwork_1)
+        ArtworkDescriptor(
+            title = R.string.artwork_1_title,
+            artist = R.string.artwork_1_artist,
+            year = R.string.artwork_1_year
+        )
     }
 }
 @Composable
@@ -75,6 +86,16 @@ fun ArtworkDescriptor(
             .background(MaterialTheme.colorScheme.surfaceVariant)
             .padding(16.dp)
     ){
-
+        Text(
+            text = stringResource(title),
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Light
+        )
+        Text(
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(artistText) }
+                append(" ($yearText)")
+            }
+        )
     }
 }
