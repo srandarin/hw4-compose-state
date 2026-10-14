@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -81,7 +82,12 @@ fun ArtSpaceLayout(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
         ArtworkWall(artworkImage, modifier = Modifier.weight(1f))
-        ArtworkDescriptor(title = title, artist = artist, year = year)
+        ArtworkDescriptor(
+            title = title,
+            artist = artist,
+            year = year,
+            modifier = Modifier.widthIn(max = 400.dp)
+        )
         DisplayController(onPreviousClick = {
             currentArtwork = when (currentArtwork) {
                 1 -> 3
