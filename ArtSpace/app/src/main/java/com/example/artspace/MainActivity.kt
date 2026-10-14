@@ -38,6 +38,7 @@ import com.example.artspace.ui.theme.ArtSpaceTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Devices
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -165,6 +166,13 @@ fun DisplayController(
     (showBackground = true)
 @Composable
 fun ArtSpacePreview() {
+    ArtSpaceTheme {
+        ArtSpaceLayout()
+    }
+}
+@Preview(showBackground = true, device = Devices.TABLET)
+@Composable
+fun ArtSpaceTabletPreview() {
     ArtSpaceTheme {
         ArtSpaceLayout()
     }
